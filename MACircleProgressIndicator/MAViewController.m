@@ -20,11 +20,19 @@
     
     // The color property sets the actual color of the procress circle (how
     // suprising ;) )
-    appearance.color = [UIColor whiteColor];
+    appearance.color = [UIColor clearColor];
+    appearance.unfinishedColor = [UIColor greenColor];
+    appearance.colorAlpha = 0.0;
+    appearance.unfinishedAlpha = 1.0;
+    appearance.strokeWidth = 10.0;
+    appearance.innerBorderWidth = 2.0;
+    appearance.outerBorderWidth = 2.0;
+    appearance.outerBorderAlpha = 1.0;
+    appearance.innerBorderAlpha = 1.0;
     
     // Use the strokeWidth property to set the width of the
     // circle stroke excplicitly.
-    //appearance.strokeWidth = 1.0;
+
     
     // If you set the strokeWidthRatio, the width of the
     // circle stroke gets calculated related to the actual

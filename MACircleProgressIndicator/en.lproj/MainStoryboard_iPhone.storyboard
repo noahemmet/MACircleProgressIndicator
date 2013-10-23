@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -9,11 +9,15 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="MAViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="skd-WL-q0O"/>
+                        <viewControllerLayoutGuide type="bottom" id="P6j-QE-ydH"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UVb-cV-dzf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVb-cV-dzf">
                                 <rect key="frame" x="20" y="505" width="281" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -24,7 +28,7 @@
                                     <action selector="onDecrease:" destination="2" eventType="touchUpInside" id="dYn-QF-xAV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mip-fk-3QX">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mip-fk-3QX">
                                 <rect key="frame" x="20" y="454" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -35,18 +39,26 @@
                                     <action selector="onIncrease:" destination="2" eventType="touchUpInside" id="4zc-Ve-XyA"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="ufv-cN-1hr" customClass="MACircleProgressIndicator">
-                                <rect key="frame" x="140" y="86" width="40" height="40"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufv-cN-1hr" customClass="MACircleProgressIndicator">
+                                <rect key="frame" x="140" y="20" width="40" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="GLD-Z9-98y" customClass="MACircleProgressIndicator">
-                                <rect key="frame" x="126" y="162" width="68" height="68"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLD-Z9-98y" customClass="MACircleProgressIndicator">
+                                <rect key="frame" x="35" y="159" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="KMF-qM-HAL"/>
+                                    <constraint firstAttribute="height" constant="250" id="onU-Qs-UXf"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="GLD-Z9-98y" secondAttribute="centerX" id="ePw-zX-j2t"/>
+                            <constraint firstAttribute="centerY" secondItem="GLD-Z9-98y" secondAttribute="centerY" id="vhY-4O-Len"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="largeProgressIndicator" destination="GLD-Z9-98y" id="J48-N9-Kyu"/>
