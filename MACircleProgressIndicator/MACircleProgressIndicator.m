@@ -42,6 +42,8 @@
     self.backgroundColor = [UIColor clearColor];
     self.color = kCircleProgressIndicatorDefaultColor;
     self.strokeWidthRatio = kCircleProgressIndicatorDefaultStrokeWidthRatio;
+    self.unfinishedAlpha = 0.1;
+    self.colorAlpha = 0.9;
 }
 
 
@@ -70,6 +72,11 @@
 
 -(void)setColor:(UIColor *)color {
     _color = color;
+    
+    if (!_unfinishedColor) {
+        _unfinishedColor = color;
+    }
+    
     [self setNeedsDisplay];
 }
 
@@ -95,14 +102,14 @@
     
     // "Full" Background Circle:
     CGContextBeginPath(ctx);
-    CGContextAddArc(ctx, 0, 0, radius, 0, 2*M_PI, 0);
-    CGContextSetStrokeColorWithColor(ctx, [_color colorWithAlphaComponent:0.1].CGColor);
+    CGContextAddArc(ctx, 0, 0, radius, endAngle, 2*M_PI, 0);
+    CGContextSetStrokeColorWithColor(ctx, [_unfinishedColor colorWithAlphaComponent:_unfinishedAlpha].CGColor);
     CGContextStrokePath(ctx);
     
     // Progress Arc:
     CGContextBeginPath(ctx);
     CGContextAddArc(ctx, 0, 0, radius, 0, endAngle, 0);
-    CGContextSetStrokeColorWithColor(ctx, [_color colorWithAlphaComponent:0.9].CGColor);
+    CGContextSetStrokeColorWithColor(ctx, [_color colorWithAlphaComponent:_colorAlpha].CGColor);
     CGContextStrokePath(ctx);
     
     CGContextRestoreGState(ctx);

@@ -15,6 +15,24 @@
 @property (nonatomic, retain) UIColor *color UI_APPEARANCE_SELECTOR;
 
 /**
+ * Alpha of progressed part of progress indicator. Use UIAppearance to
+ * style according your needs.
+ */
+@property (nonatomic, assign) CGFloat colorAlpha UI_APPEARANCE_SELECTOR;
+
+/**
+ * The color that is used to draw "unprogressed" part of progress indicator. Use UIAppearance to
+ * style according your needs.
+ */
+@property (nonatomic, strong) UIColor* unfinishedColor UI_APPEARANCE_SELECTOR;
+
+/**
+ * Alpha of unprogressed part of the progress indicator. Use UIAppearance to
+ * style according your needs.
+ */
+@property (nonatomic, assign) CGFloat unfinishedAlpha UI_APPEARANCE_SELECTOR;
+
+/**
  * The stroke width ratio is used to calculate the circle thickness regarding the
  * actual size of the progress indicator view. When setting this, strokeWidth is
  * ignored.
