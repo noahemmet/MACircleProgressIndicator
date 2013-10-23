@@ -42,8 +42,18 @@
     self.backgroundColor = [UIColor clearColor];
     self.color = kCircleProgressIndicatorDefaultColor;
     self.strokeWidthRatio = kCircleProgressIndicatorDefaultStrokeWidthRatio;
+    
     self.unfinishedAlpha = 0.1;
     self.colorAlpha = 0.9;
+    
+    self.innerBorderWidth = 0.0;
+    self.outerBorderWidth = 0.0;
+    
+    self.innerBorderColor = [UIColor whiteColor];
+    self.outerBorderColor = [UIColor whiteColor];
+    
+    self.innerBorderAlpha = 1.0;
+    self.outerBorderAlpha = 1.0;
 }
 
 
@@ -87,7 +97,7 @@
     CGContextRef ctx = UIGraphicsGetCurrentContext();
 
     CGPoint center = CGPointMake(rect.size.width/2, rect.size.height/2);
-    float minSize = MIN(rect.size.width, rect.size.height);
+    float minSize = MIN(rect.size.width - _outerBorderWidth, rect.size.height - _outerBorderWidth);
     float lineWidth = _strokeWidth;
     if(lineWidth == -1.0) lineWidth = minSize*_strokeWidthRatio;
     float radius = (minSize-lineWidth)/2;
@@ -112,6 +122,27 @@
     CGContextSetStrokeColorWithColor(ctx, [_color colorWithAlphaComponent:_colorAlpha].CGColor);
     CGContextStrokePath(ctx);
     
+    
+    // Inner border
+    CGFloat innerRadius = radius - lineWidth / 2;
+    CGContextSetLineWidth(ctx, _innerBorderWidth);
+    CGContextSetLineCap(ctx, kCGLineCapRound);
+
+    CGContextBeginPath(ctx);
+    CGContextAddArc(ctx, 0, 0, innerRadius, 0, 2*M_PI, 0);
+    CGContextSetStrokeColorWithColor(ctx, [_innerBorderColor colorWithAlphaComponent:_innerBorderAlpha].CGColor);
+    CGContextStrokePath(ctx);
+    
+    // Outer border
+    CGFloat outerRadius = radius + lineWidth / 2;
+    CGContextSetLineWidth(ctx, _outerBorderWidth);
+    CGContextSetLineCap(ctx, kCGLineCapRound);
+    
+    CGContextBeginPath(ctx);
+    CGContextAddArc(ctx, 0, 0, outerRadius, 0, 2*M_PI, 0);
+    CGContextSetStrokeColorWithColor(ctx, [_outerBorderColor colorWithAlphaComponent:_outerBorderAlpha].CGColor);
+    CGContextStrokePath(ctx);
+
     CGContextRestoreGState(ctx);
 }
 
