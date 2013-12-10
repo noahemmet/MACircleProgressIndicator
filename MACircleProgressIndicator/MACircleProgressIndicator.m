@@ -48,6 +48,10 @@
     
     self.innerBorderWidth = 0.0;
     self.outerBorderWidth = 0.0;
+	
+	self.arcLineCap = kCGLineCapRound;
+	self.innerBorderLineCap = kCGLineCapRound;
+	self.outerBorderLineCap = kCGLineCapRound;
     
     self.innerBorderColor = [UIColor whiteColor];
     self.outerBorderColor = [UIColor whiteColor];
@@ -108,7 +112,7 @@
     CGContextRotateCTM(ctx, -M_PI*0.5);
     
     CGContextSetLineWidth(ctx, lineWidth);
-    CGContextSetLineCap(ctx, kCGLineCapRound);
+    CGContextSetLineCap(ctx, self.arcLineCap);
     
     // "Full" Background Circle:
     CGContextBeginPath(ctx);
@@ -126,7 +130,7 @@
     // Inner border
     CGFloat innerRadius = radius - lineWidth / 2;
     CGContextSetLineWidth(ctx, _innerBorderWidth);
-    CGContextSetLineCap(ctx, kCGLineCapRound);
+    CGContextSetLineCap(ctx, self.innerBorderLineCap);
 
     CGContextBeginPath(ctx);
     CGContextAddArc(ctx, 0, 0, innerRadius, 0, 2*M_PI, 0);
@@ -136,7 +140,7 @@
     // Outer border
     CGFloat outerRadius = radius + lineWidth / 2;
     CGContextSetLineWidth(ctx, _outerBorderWidth);
-    CGContextSetLineCap(ctx, kCGLineCapRound);
+    CGContextSetLineCap(ctx, self.outerBorderAlpha);
     
     CGContextBeginPath(ctx);
     CGContextAddArc(ctx, 0, 0, outerRadius, 0, 2*M_PI, 0);

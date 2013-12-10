@@ -1,5 +1,7 @@
 # MACircleProgressIndicator
 ## Overview
+
+This fork adds custom CGLineCaps for the borders.
 `MACircleProgressIndicator` is a progress indicator view for iOS 5 or newer.
 
 ![Screenshot](https://raw.github.com/swissmanu/MACircleProgressIndicator/master/screenshot.png)

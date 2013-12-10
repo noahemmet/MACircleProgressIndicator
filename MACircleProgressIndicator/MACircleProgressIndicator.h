@@ -19,6 +19,10 @@
  * style according your needs.
  */
 @property (assign, nonatomic) CGFloat colorAlpha UI_APPEARANCE_SELECTOR;
+/**
+ * Line cap of arc. Use UIAppearance to style according your needs.
+ */
+@property (assign, nonatomic) CGLineCap arcLineCap UI_APPEARANCE_SELECTOR;
 
 /**
  * The color that is used to draw "unprogressed" part of progress indicator. Use UIAppearance to
@@ -44,6 +48,11 @@
 @property (assign, nonatomic) CGFloat innerBorderWidth UI_APPEARANCE_SELECTOR;
 
 /**
+ * Line cap of inner border. Use UIAppearance to style according your needs.
+ */
+@property (assign, nonatomic) CGLineCap innerBorderLineCap UI_APPEARANCE_SELECTOR;
+
+/**
  * Alpha of inner border. Use UIAppearance to style according your needs.
  */
 @property (assign, nonatomic) CGFloat innerBorderAlpha UI_APPEARANCE_SELECTOR;
@@ -63,6 +72,10 @@
  * Width of outer border. Use UIAppearance to style according your needs.
  */
 @property (assign, nonatomic) CGFloat outerBorderWidth UI_APPEARANCE_SELECTOR;
+/**
+ * Line cap of outer border. Use UIAppearance to style according your needs.
+ */
+@property (assign, nonatomic) CGLineCap outerBorderLineCap UI_APPEARANCE_SELECTOR;
 
 /**
  * The stroke width ratio is used to calculate the circle thickness regarding the
